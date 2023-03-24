@@ -3,7 +3,7 @@
 html {
     box-sizing: border-box;
 }
-  
+
 *, *:before, *:after {
     box-sizing: inherit;
 }
@@ -34,4 +34,255 @@ button {
     font-family: inherit;
     font-size: 100%;
     outline: none;
+}
+
+/* Formatting */
+
+body {
+    display: grid;
+    grid-template-columns: clamp(225px, 21vw, 350px) 1fr;
+    background-color: #e1e1e1;
+}
+
+img {
+    height: 1em;
+}
+
+img[src$=".png"] {
+    height: 3rem;
+}
+
+header.menu {
+    background-color: #539ddf;
+    grid-column: 1/2;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+header.menu img {
+    color: white;
+}
+
+header.menu > a:first-child {
+    font-size: 2rem;
+}
+
+header.menu a {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+header.menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+main {
+    display: grid;
+    grid-template-columns: auto minmax(250px, 1fr);
+    grid-template-rows: repeat(4, auto);
+}
+
+main > * {
+    padding: 1rem;
+}
+
+main nav.top {
+    grid-column: 1/3;
+    padding: 1rem;
+    background-color: white;
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 1.25rem;
+    box-shadow: 0px 2px 13px -3px #78787891;
+}
+
+nav.top .top-row {
+    display: flex;
+}
+
+.top-row div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.top-row div label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-row label img {
+    height: 1.5rem;
+}
+
+.top-row div:first-child {
+    flex: 1;
+}
+
+.top-row input[type="search"] {
+    height: 1.75rem;
+    border-radius: 6%/107%;
+    border: none;
+    background-color: lightgrey;
+    outline: none;
+    width: 40ch;
+    padding: 0 2%;
+    flex: 0.7;
+}
+
+nav.top .bottom-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bottom-row figure.user {
+    display: flex;
+    gap: clamp(0.5rem, 3.25%, 0.75rem);
+    align-items: center;
+}
+
+figure.user figcaption {
+    font-weight: 600;
+}
+
+figure.user figcaption span {
+    font-size: 0.8em;
+}
+
+nav.action-buttons {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+    min-width: 300px;
+}
+
+nav.action-buttons button {
+    border: none;
+    border-radius: 15%/53%;
+    padding: 0.5rem clamp(1rem, 5%, 2rem);
+    background-color: #77aae6;
+    color: white;
+    font-weight: bold;
+    flex: 1 1 0;
+}
+
+section.article-container {
+    grid-row: 2 / -1;
+}
+
+:where(section.article-container, aside.announcements, aside.trending) h4 {
+    margin-bottom: 0.5rem;
+}
+
+section.article-container article.articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+    gap: 1rem;
+}
+
+section.article-container article.articles article {
+    padding: 2rem 1.25rem;
+    box-shadow: 5px 2px 8px -3px #9f9f9f;
+    border-radius: 6%/7%;
+    display: grid;
+    grid-template-rows: auto auto 2rem auto;
+    grid-template-columns: repeat(4, auto);
+    column-gap: 0.5rem;
+    background: linear-gradient(
+        to right,
+        #fdd41e 2%,
+        white 3%
+    );
+}
+
+article.articles article h5 {
+    grid-column: 1/-1;
+    align-self: end;
+}
+
+article.articles article p {
+    grid-column: 1/-1;
+}
+
+article.articles article img:nth-child(3) {
+    grid-column: -3/-4;
+    grid-row: -1;
+}
+
+article.articles article img:nth-child(4) {
+    grid-column: -2/-3;
+    grid-row: -1;
+}
+
+article.articles article img:nth-child(5) {
+    grid-column: -1/-2;
+    grid-row: -1;
+}
+
+aside.announcements {
+    grid-row: 2/3;
+}
+
+aside.announcements article p, 
+aside.trending figcaption p {
+    font-size: max(12px, 0.75rem);
+    color: #464646;
+}
+
+aside.announcements section {
+    background-color: white;
+    display: grid;
+    row-gap: 1rem;
+    padding: 2rem 1.5rem;
+    border-radius: 9%/3%;
+    align-content: start;
+}
+
+.gray-line {
+    height: 1px;
+    background-color: #555555;
+}
+
+aside.trending {
+    grid-row: 3/4;
+}
+
+aside.trending section {
+    background-color: white;
+    padding: 1.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border-radius: 6%/7%;
+}
+
+aside.trending section figure {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+aside.trending figcaption {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+footer {
+    grid-column: 1/3;
+    background-color: #cfcfcf;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3rem;
 }
