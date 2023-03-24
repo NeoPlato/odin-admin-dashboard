@@ -66,7 +66,7 @@ header.menu img {
 }
 
 header.menu > a:first-child {
-    font-size: 2rem;
+    font-size: 1.75rem;
 }
 
 header.menu a {
@@ -75,7 +75,7 @@ header.menu a {
     align-items: center;
     text-decoration: none;
     color: white;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
 }
 
 header.menu ul {
@@ -134,10 +134,9 @@ nav.top {
 
 .top-row input[type="search"] {
     height: 1.75rem;
-    border-radius: 6%/107%;
+    border-radius: 1.25rem;
     border: none;
     background-color: lightgrey;
-    outline: none;
     width: 40ch;
     padding: 0 2%;
     flex: 0.7;
@@ -172,7 +171,7 @@ nav.top {
 
 .action-buttons button {
     border: none;
-    border-radius: 15%/53%;
+    border-radius: 1.25rem;
     padding: 0.5rem clamp(1rem, 5%, 2rem);
     background-color: #77aae6;
     color: white;
@@ -194,7 +193,6 @@ nav.top {
 .project-article {
     padding: 2rem 1.25rem;
     box-shadow: 5px 2px 8px -3px #9f9f9f;
-    border-radius: 6%/7%;
     display: grid;
     grid-template-rows: auto auto 2rem auto;
     grid-template-columns: repeat(4, auto);
@@ -240,12 +238,11 @@ nav.top {
     color: #464646;
 }
 
-.announcements section {
+.announcements-section {
     background-color: white;
     display: grid;
     row-gap: 1rem;
     padding: 2rem 1.5rem;
-    border-radius: 9%/3%;
     align-content: start;
 }
 
@@ -258,25 +255,30 @@ nav.top {
     grid-row: 3/4;
 }
 
-.trending section {
+.trending-section {
     background-color: white;
     padding: 1.5rem 1rem;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    border-radius: 6%/7%;
 }
 
-.trending section figure {
+.trending-section figure {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-.trending figcaption {
+.trending-section figcaption {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+}
+
+.project-article,
+.announcements-section,
+.trending-section {
+    border-radius: 1rem;
 }
 
 footer {
