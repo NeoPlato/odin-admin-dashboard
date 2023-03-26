@@ -46,30 +46,65 @@ button {
 
 :root {
     --body-backup-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    --gap-1: 2rem;
+    --gap-2: 1.75rem;
+    --gap-3: 1.5rem;
+    --gap-4: 1.25rem;
+    --gap-5: 1rem;
+    --gap-6: 0.75rem;
+    --gap-7: 0.5rem;
+    --gap-8: 0.25rem;
+    --main-padding: 1rem;
+    --img-height: 1em;
+    --img-png-height: 3rem;
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --body-bg-color: #e1e1e1;
+        --header-bg-color: #539ddf;
+        --header-link-color: white;
+        --top-nav-bg-color: white;
+        --top-nav-box-shadow: 0px 2px 13px -3px #78787891;
+        --input-search-bg-color: lightgrey;
+        --action-button-bg-color: #77aae6;
+        --action-button-text-color: white;
+        --project-article-box-shadow: 5px 2px 8px -3px #9f9f9f;
+        --project-article-bg: linear-gradient(
+            to right,
+            #fdd41e 2%,
+            white 3%
+        );
+        --aside-pg-color: #464646;
+        --aside-bg-color: white;
+        --gray-line-color: #555555;
+        --footer-bg-color: #cfcfcf;
+        --footer-icon-color: #414141;
+    }
 }
 
 body {
     display: grid;
     grid-template-columns: clamp(218px, 21vw, 350px) 1fr;
-    background-color: #e1e1e1;
+    background-color: var(--body-bg-color);
     font-family: Roboto, var(--body-backup-font);
 }
 
 img {
-    height: 1em;
+    height: var(--img-height);
 }
 
 img[src$=".png"] {
-    height: 3rem;
+    height: var(--img-png-height);
 }
 
 header.menu {
-    background-color: #539ddf;
-    grid-column: 1;
-    padding: 1rem;
+    background-color: var(--header-bg-color);
+    padding: var(--main-padding);
     display: flex;
     flex-direction: column;
-    gap: 3rem;
+    gap: var(--gap-1);
+    grid-column: 1;
 }
 
 header.menu img {
@@ -82,17 +117,17 @@ header.menu > a:first-child {
 
 header.menu a {
     display: flex;
-    gap: 1rem;
+    gap: var(--gap-5);
+    color: var(--header-link-color);
+    font-size: 1.25rem;
     align-items: center;
     text-decoration: none;
-    color: white;
-    font-size: 1.25rem;
 }
 
 header.menu ul {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--gap-5);
 }
 
 main {
@@ -101,22 +136,23 @@ main {
     grid-template-rows: repeat(4, auto);
 }
 
+header.menu,
 main > * {
-    padding: 1rem;
+    padding: var(--main-padding);
 }
 
 main h4 {
-    margin-bottom: 0.5rem;
+    margin-bottom: var(--gap-7);
 }
 
 nav.top {
     grid-column: 1/3;
-    padding: 1rem;
-    background-color: white;
+    padding: var(--main-padding);
+    background-color: var(--top-nav-bg-color);
     display: grid;
     grid-template-rows: repeat(2, auto);
-    gap: 1.25rem;
-    box-shadow: 0px 2px 13px -3px #78787891;
+    row-gap: var(--gap-4);
+    box-shadow: var(--top-nav-box-shadow);
 }
 
 .top-row {
@@ -126,7 +162,7 @@ nav.top {
 .top-row div {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--gap-5);
 }
 
 .top-row div label {
@@ -147,10 +183,10 @@ nav.top {
     height: 1.75rem;
     border-radius: 1.25rem;
     border: none;
-    background-color: lightgrey;
+    background-color: var(--input-search-bg-color);
     width: 40ch;
     padding: 0 2%;
-    flex: 0.7;
+    flex: 0.75;
 }
 
 .bottom-row {
@@ -158,12 +194,12 @@ nav.top {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: var(--gap-6);
 }
 
 .bottom-row figure.user {
     display: flex;
-    gap: clamp(0.5rem, 3.25%, 0.75rem);
+    gap: clamp(var(--gap-7), 3.25%, var(--gap-6));
     align-items: center;
 }
 
@@ -179,16 +215,16 @@ nav.top {
 .action-buttons {
     display: flex;
     justify-content: end;
-    gap: 1rem;
+    gap: var(--gap-5);
     min-width: 300px;
 }
 
 .action-buttons button {
     border: none;
     border-radius: 1.25rem;
-    padding: 0.5rem clamp(1rem, 5%, 2rem);
-    background-color: #77aae6;
-    color: white;
+    padding: var(--gap-7) clamp(var(--gap-5), 5%, var(--gap-1));
+    background-color: var(--action-button-bg-color);
+    color: var(--action-button-text-color);
     font-weight: bold;
     width: auto;
     flex: 1 1 0;
@@ -201,21 +237,17 @@ nav.top {
 .project-articles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
-    gap: 1rem;
+    gap: var(--gap-5);
 }
 
 .project-article {
-    padding: 2rem 1.25rem;
-    box-shadow: 5px 2px 8px -3px #9f9f9f;
+    padding: var(--gap-1) var(--gap-4);
+    box-shadow: var(--project-article-box-shadow);
     display: grid;
-    grid-template-rows: auto auto 2rem auto;
+    grid-template-rows: auto auto var(--gap-1) auto;
     grid-template-columns: repeat(4, auto);
-    column-gap: 0.5rem;
-    background: linear-gradient(
-        to right,
-        #fdd41e 2%,
-        white 3%
-    );
+    column-gap: var(--gap-7);
+    background: var(--project-article-bg);
 }
 
 .project-article h5 {
@@ -249,20 +281,19 @@ nav.top {
 .announcements article p, 
 .trending figcaption p {
     font-size: max(12px, 0.75rem);
-    color: #464646;
+    color: var(--aside-pg-color);
 }
 
 .announcements-section {
-    background-color: white;
     display: grid;
-    row-gap: 1rem;
-    padding: 2rem 1.5rem;
-    align-content: start;
+    background-color: var(--aside-bg-color);
+    row-gap: var(--gap-5);
+    padding: var(--gap-1) var(--gap-3);
 }
 
 .gray-line {
     height: 1px;
-    background-color: #555555;
+    background-color: var(--gray-line-color);
 }
 
 .trending {
@@ -270,23 +301,23 @@ nav.top {
 }
 
 .trending-section {
-    background-color: white;
-    padding: 1.5rem 1rem;
+    background-color: var(--aside-bg-color);
+    padding: var(--gap-3) var(--gap-5);
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: var(--gap-6);
 }
 
 .trending-section figure {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: var(--gap-5);
 }
 
 .trending-section figcaption {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: var(--gap-8);
 }
 
 .project-article,
@@ -302,7 +333,7 @@ main h4 {
 
 footer {
     grid-column: 1/-1;
-    background-color: #cfcfcf;
+    background-color: var(--footer-bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -310,7 +341,7 @@ footer {
 }
 
 footer svg {
-    color: #414141;
+    color: var(--footer-icon-color);
     width: 1.25rem;
     height: 1.25rem;
     margin-left: 0.5rem;
