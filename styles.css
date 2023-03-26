@@ -44,11 +44,15 @@ button {
     font-display: swap;
 }
 
+:root {
+    --body-backup-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
 body {
     display: grid;
     grid-template-columns: clamp(225px, 21vw, 350px) 1fr;
     background-color: #e1e1e1;
-    font-family: Roboto, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: Roboto, var(--body-backup-font);
 }
 
 img {
