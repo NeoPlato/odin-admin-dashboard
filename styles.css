@@ -142,17 +142,20 @@ main > * {
 
 @media only screen and (max-width: 768px) {
     body {
-        grid-template-columns: auto;
+        display: flex;
+        flex-direction: column;
     }
 
     header.menu {
         flex-direction: row;
+        align-items: center;
         overflow: overlay;
         gap: 5rem;
     }
 
     header.menu ul {
         flex-direction: row;
+        align-items: center;
         gap: 3rem;
     }
 
