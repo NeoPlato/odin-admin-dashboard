@@ -64,19 +64,25 @@ button {
         --body-bg-color: #e1e1e1;
         --header-bg-color: #2f69bc;
         --header-link-color: white;
+        --header-icon-brightness: brightness(1);
         --top-nav-bg-color: white;
+        --top-nav-text-color: black;
         --top-nav-box-shadow: 0px 2px 13px -3px #78787891;
+        --top-nav-icon-filter: none;
         --input-search-bg-color: lightgrey;
         --action-button-bg-color: var(--header-bg-color);
         --action-button-text-color: white;
+        --article-heading-color: black;
+        --article-text-color: #464646;
+        --article-bg-color: white;
         --project-article-box-shadow: 5px 2px 8px -3px #9f9f9f;
         --project-article-bg: linear-gradient(
             to right,
             #fdd41e 2%,
-            white 3%
+            var(--article-bg-color) 3%
         );
         --aside-pg-color: #464646;
-        --aside-bg-color: white;
+        --aside-bg-color: var(--article-bg-color);
         --gray-line-color: #555555;
         --footer-bg-color: #a9a9a9;
         --footer-icon-color: #414141;
@@ -85,22 +91,28 @@ button {
 
 @media (prefers-color-scheme: dark) {
     :root {
-        --body-bg-color: #e1e1e1;
-        --header-bg-color: #2f69bc;
-        --header-link-color: white;
-        --top-nav-bg-color: white;
+        --body-bg-color: #585858;
+        --header-bg-color: #023d91;
+        --header-link-color: #c9c9c9;
+        --header-icon-filter: invert(1) brightness(0.75);
+        --top-nav-bg-color: hsl(215deg 41.22% 29.75%);
+        --top-nav-text-color: white;
         --top-nav-box-shadow: 0px 2px 13px -3px #78787891;
-        --input-search-bg-color: lightgrey;
+        --top-nav-icon-filter: invert(100%) brightness(calc(8/9));
+        --input-search-bg-color: #959595;
         --action-button-bg-color: var(--header-bg-color);
         --action-button-text-color: white;
-        --project-article-box-shadow: 5px 2px 8px -3px #9f9f9f;
+        --article-heading-color: white;
+        --article-text-color: #e8e8e8;
+        --article-bg-color: #616161;
+        --project-article-box-shadow: 5px 2px 8px -3px #4d4d4db8;
         --project-article-bg: linear-gradient(
             to right,
-            #fdd41e 2%,
-            white 3%
+            #ffee4c87 2%,
+            var(--article-bg-color) 3%
         );
         --aside-pg-color: #464646;
-        --aside-bg-color: white;
+        --aside-bg-color: var(--article-bg-color);
         --gray-line-color: #555555;
         --footer-bg-color: #a9a9a9;
         --footer-icon-color: #414141;
@@ -131,7 +143,7 @@ header.menu {
 }
 
 header.menu img {
-    filter: invert(100%);
+    filter: var(--header-icon-filter);
 }
 
 header.menu > a:first-child {
@@ -199,10 +211,16 @@ nav.top {
     grid-template-rows: repeat(2, auto);
     row-gap: var(--gap-4);
     box-shadow: var(--top-nav-box-shadow);
+    color: var(--top-nav-text-color);
 }
 
 .top-row {
     display: flex;
+}
+
+.top-row img[src$=".svg"],
+.project-article img[src$=".svg"] {
+    filter: var(--top-nav-icon-filter);
 }
 
 .top-row div {
@@ -303,6 +321,7 @@ nav.top {
 
 .project-article p {
     grid-column: 1/-1;
+    color: var(--article-text-color)
 }
 
 .project-article img:nth-child(3) {
@@ -327,9 +346,8 @@ nav.top {
 .announcements article p, 
 .trending figcaption p {
     font-size: max(12px, 0.75rem);
-    color: var(--aside-pg-color);
+    color: var(--article-text-color);
 }
-
 .announcements-section {
     display: grid;
     background-color: var(--aside-bg-color);
@@ -376,6 +394,7 @@ main h4,
 main article > h5,
 main figcaption > h5 {
     font-weight: bold;
+    color: var(--article-heading-color);
 }
 
 footer {
