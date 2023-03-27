@@ -140,6 +140,27 @@ main > * {
     padding: var(--main-padding);
 }
 
+@media only screen and (max-width: 768px) {
+    body {
+        grid-template-columns: auto;
+    }
+
+    header.menu {
+        flex-direction: row;
+        overflow: overlay;
+        gap: 5rem;
+    }
+
+    header.menu ul {
+        flex-direction: row;
+        gap: 3rem;
+    }
+
+    header.menu a {
+        gap: var(--gap-6);
+    }
+}  
+
 main h4 {
     margin-bottom: var(--gap-7);
 }
@@ -325,8 +346,9 @@ nav.top {
     border-radius: 1rem;
 }
 
+main h4,
 main article > h5,
-main h4 {
+main figcaption > h5 {
     font-weight: bold;
 }
 
