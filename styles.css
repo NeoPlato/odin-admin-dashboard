@@ -64,7 +64,7 @@ button {
         --body-bg-color: #e1e1e1;
         --header-bg-color: #2f69bc;
         --header-link-color: white;
-        --header-icon-brightness: brightness(1);
+        --header-icon-filter: invert(1);
         --top-nav-bg-color: white;
         --top-nav-text-color: black;
         --top-nav-box-shadow: 0px 2px 13px -3px #78787891;
