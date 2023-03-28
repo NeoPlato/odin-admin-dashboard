@@ -385,6 +385,10 @@ nav.top {
     gap: var(--gap-8);
 }
 
+.trending-section a {
+    text-decoration: none;
+}
+
 .project-article,
 .announcements-section,
 .trending-section {
