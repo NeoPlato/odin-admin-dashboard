@@ -317,6 +317,7 @@ nav.top {
 .project-article h5 {
     grid-column: 1/-1;
     align-self: end;
+    font-size: 1rem;
 }
 
 .project-article p {
