@@ -408,7 +408,9 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 3rem;
+    padding: 1rem 0;
+    flex-direction: column;
+    row-gap: 0.5rem;
 }
 
 footer svg {
@@ -421,4 +423,8 @@ footer svg {
 
 footer svg:hover {
     transform: rotate(360deg) scale(1.2);
+}
+
+footer p a {
+    color: #000493;
 }
